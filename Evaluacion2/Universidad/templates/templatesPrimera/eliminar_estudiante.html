@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Eliminar Estudiante</h2>
+  <p>¿Estás seguro de que deseas eliminar este estudiante?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>Nombre: {{ estudiante.nombre }}</p>
+    <p>Rut: {{ estudiante.rut }}</p>
+    <p>Edad: {{ estudiante.edad }}</p>
+    <p>Email: {{ estudiante.email }}</p>
+    <p>Número Celular: {{ estudiante.nro_celular }}</p>
+    <p>Dirección: {{ estudiante.direccion }}</p>
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'listar_estudiantes' %}" class="btn btn-primary">Cancelar</a>
+  </form>
+{% endblock %}

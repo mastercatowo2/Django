@@ -15,15 +15,30 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-from Primera.views import listar_estudiantes, crear_estudiante, actualizar_estudiante, eliminar_estudiante
-from Primera import views
+from Primera.views import listar_estudiantes, crear_estudiante, actualizar_estudiante,inicio, eliminar_estudiante, listar_docentes, crear_docente, actualizar_docente, eliminar_docente, listar_ramos, eliminar_ramo, actualizar_ramo, crear_ramo
 from django.contrib import admin
+
+
 app_name = 'estudiantes'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', listar_estudiantes, name='listar_estudiantes'),
+    path('', inicio, name='inicio'),
+
+
+    path('estudiantes/', listar_estudiantes, name='listar_estudiantes'),
     path('crear/', crear_estudiante, name='crear_estudiante'),
     path('actualizar/<int:id>/', actualizar_estudiante, name='actualizar_estudiante'),
     path('eliminar/<int:id>/', eliminar_estudiante, name='eliminar_estudiante'),
+
+
+    path('docentes/', listar_docentes, name='listar_docentes'),
+    path('docentes/crear/', crear_docente, name='crear_docente'),
+    path('docentes/actualizar/<int:id>/', actualizar_docente, name='actualizar_docente'),
+    path('docentes/eliminar/<int:id>/', eliminar_docente, name='eliminar_docente'),
+    
+    path('ramos/', listar_ramos, name='listar_ramos'),
+    path('ramos/crear/', crear_ramo, name='crear_ramo'),
+    path('ramos/actualizar/<int:id>/', actualizar_ramo, name='actualizar_ramo'),
+    path('ramos/eliminar/<int:id>/', eliminar_ramo, name='eliminar_ramo')
 ]

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Ramo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            display: block;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .confirmation {
+            margin: 20px auto;
+            width: 60%;
+            max-width: 400px;
+        }
+
+        button {
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Eliminar Ramo</h1>
+    <a href="{% url 'listar_ramos' %}">Volver a la lista de ramos</a>
+
+    <div class="confirmation">
+        <p>¿Estás seguro de que deseas eliminar este ramo?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Confirmar Eliminación</button>
+        </form>
+    </div>
+</body>
+</html>

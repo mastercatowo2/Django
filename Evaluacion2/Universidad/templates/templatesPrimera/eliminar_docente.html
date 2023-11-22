@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Eliminar Docente</h2>
+  <p>¿Estás seguro de que deseas eliminar este docente?</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <p>Nombre: {{ docente.nombre }}</p>
+    <p>Rut: {{ docente.rut }}</p>
+    <p>Edad: {{ docente.edad }}</p>
+    <p>Email: {{ docente.email }}</p>
+    <p>Número Celular: {{ docente.nro_celular }}</p>
+    <p>Dirección: {{ docente.direccion }}</p>
+
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a href="{% url 'listar_docentes' %}" class="btn btn-primary">Cancelar</a>
+  </form>
+{% endblock %}

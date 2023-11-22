@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Docentes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+
+        td a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lista de Docentes</h1>
+    <a href="{% url 'crear_docente' %}">Crear Docente</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>RUT</th>
+            <th>Edad</th>
+            <th>Email</th>
+            <th>Nro Celular</th>
+            <th>Dirección</th>
+            <th>Ramos a Impartir</th>
+            <th>Acciones</th>
+        </tr>
+        {% for docente in docentes %}
+            <tr>
+                <td>{{ docente.id }}</td>
+                <td>{{ docente.nombre }}</td>
+                <td>{{ docente.rut }}</td>
+                <td>{{ docente.edad }}</td>
+                <td>{{ docente.email }}</td>
+                <td>{{ docente.nro_celular }}</td>
+                <td>{{ docente.direccion }}</td>
+                <td>{{ docente.ramos_a_impartir }}</td>
+                <td>
+                    <a href="{% url 'actualizar_docente' docente.id %}">Editar</a>
+                    <a href="{% url 'eliminar_docente' docente.id %}">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
